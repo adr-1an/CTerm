@@ -22,3 +22,7 @@ Please join the Discord server first as I'm only accepting DMS from server membe
 			    GITHUB REPO
 -------------------------------------------------------------------
 https://github.com/adr-1an/CTerm
+-------------------------------------------------------------------
+			    REWRITE IT IN RUST?
+-------------------------------------------------------------------
+Sure, when I learn Rust.
