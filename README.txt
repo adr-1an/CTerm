@@ -21,4 +21,4 @@ Please join the Discord server first as I'm only accepting DMS from server membe
 -------------------------------------------------------------------
 			    GITHUB REPO
 -------------------------------------------------------------------
-I'll make one in the next update, check this file again after updating.
+https://github.com/adr-1an/CTerm
