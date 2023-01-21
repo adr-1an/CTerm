@@ -1,7 +1,9 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <list>
 #include <cstring>
+#include <sstream>
 #include "help.cpp"
 #include "neofetch.cpp"
 #include "systerminal.cpp"
@@ -38,9 +40,61 @@ int main()
             if (accepted == "yes")
             {
                 std::cout << "Starting setup, please wait. This might take a few minutes depending on your PC and your internet speed." << std::endl;
-                system("sudo apt install neofetch -y");
-                system("sudo apt install cmatrix -y");
-                system("sudo apt install python3");
+                system("which cmatrix > cmatrix_installed.txt");
+                std::ifstream cmatrix_installed("cmatrix_installed.txt");
+                system("which python3 > python3_installed.txt");
+                std::ifstream python3_installed("python3_installed.txt");
+
+                system("which neofetch > neofetch_installed.txt");
+                std::ifstream neofetch_installed("neofetch_installed.txt");
+                std::string neofetch_str;
+                std::string cmatrix_str;
+                std::string python3_str;
+                if (neofetch_installed)
+                {
+                    std::ostringstream neofetch_check;
+                    neofetch_check << neofetch_installed.rdbuf();
+                    neofetch_str = neofetch_check.str();
+                }
+                if (cmatrix_installed)
+                {
+                    std::ostringstream cmatrix_check;
+                    cmatrix_check << cmatrix_installed.rdbuf();
+                    cmatrix_str = cmatrix_check.str();
+                }
+                if (python3_installed)
+                {
+                    std::ostringstream python3_check;
+                    python3_check << python3_installed.rdbuf();
+                    python3_str = python3_check.str();
+                }
+                std::cout << neofetch_str;
+                std::cout << cmatrix_str;
+                std::cout << python3_str;
+                if (neofetch_str == "/usr/bin/neofetch")
+                {
+                    std::cout << "neofetch is installed.";
+                }
+                else
+                {
+                    system("sudo apt install neofetch -y");
+                }
+                if (cmatrix_str == "/usr/bin/cmatrix")
+                {
+                    std::cout << "cmatrix is isntalled.";
+                }
+                else
+                {
+                    system("sudo apt install cmatrix -y");
+                }
+                if (python3_str == "/usr/bin/python3")
+                {
+                    std::cout << "python3 is installed.";
+                }
+                else
+                {
+                    system("sudo apt install python3 -y");
+                }
                 bool setup_complete = true;
                 system("clear");
                 std::cout << "Setup complete." << std::endl;
@@ -134,6 +188,7 @@ int main()
                     }
                     else if (command == "exit")
                     {
+                        std::cout << "Logout" << std::endl;
                         return 0;
                     }
                     else
