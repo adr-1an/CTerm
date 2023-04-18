@@ -19,6 +19,3 @@ CTerm written by Adr_ian
 Discord: Adr_ian#6846
 Please join the Discord server first as I'm only accepting DMS from server members.
 -------------------------------------------------------------------
-			    GITHUB REPO
--------------------------------------------------------------------
-I'll make one in the next update, check this file again after updating.
